@@ -61,6 +61,15 @@
     </ul>
 
 
+    <runoob-directive></runoob-directive>
+    <div runoob-directive></div>
+
+    <div class="runoob-directive"></div>
+
+
+    <input ng-model="name">
+    <h1>{{greeting}}</h1>
+    <button ng-click='sayHello()'>点我</button>
 </div>
 
 <script>
@@ -68,6 +77,18 @@
     app.controller('myCtrl', function($scope) {
         $scope.firstName= "John";
         $scope.lastName= "Doe";
+
+        $scope.name = "LinDL";
+        $scope.sayHello = function() {
+            $scope.greeting = 'Hello ' + $scope.name + '!';
+        };
+    });
+    app.directive("runoobDirective", function() {
+
+        return {
+            restrict : "A",
+            template : "<h1>自定义指令!</h1>"
+        };
     });
 </script>
 </body>
