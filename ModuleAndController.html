@@ -6,12 +6,61 @@
     <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
 </head>
 <body>
-<div ng-app="myApp" ng-controller="myCtrl">
+<div ng-app="myApp" ng-controller="myCtrl" ng-init="names=[
+{name:'Jani',country:'Norway'},
+{name:'Hege',country:'Sweden'},
+{name:'Kai',country:'Denmark'}];quantity=1;cost=5;firstName='John';lastName='Doe';person={firstName:'John',lastName:'Doe'};points=[1,15,19,2,40];">
 
     名: <input type="text" ng-model="firstName"><br>
     姓: <input type="text" ng-model="lastName"><br>
     <br>
     姓名: {{firstName + " " + lastName}}
+
+
+    <p>总价： {{ quantity * cost }}</p>
+
+    <p>总价： <span ng-bind="quantity * cost"></span></p>
+
+    <p>姓名： {{ firstName + " " + lastName }}</p>
+
+    <p>姓名： <span ng-bind="firstName + ' ' + lastName"></span></p>
+
+    <p>姓为 {{ person.lastName }}</p>
+
+    <p>第三个值为 {{ points[2] }}</p>
+
+    <p>第三个值为 <span ng-bind="points[2]"></span></p>
+
+
+    <p>在输入框中尝试输入：</p>
+    <p>姓名：<input type="text" ng-model="firstName"></p>
+    <p>你输入的为： {{ firstName }}</p>
+
+
+    <h2>价格计算器</h2>
+
+    数量： <input type="number"    ng-model="quantity">
+    价格： <input type="number" ng-model="cost">
+
+    <p><b>总价：</b> {{ quantity * cost }}</p>
+
+
+    <p>使用 ng-repeat 来循环数组</p>
+    <ul>
+        <li ng-repeat="x in points">
+            {{ x }}
+        </li>
+    </ul>
+
+
+    <p>循环对象：</p>
+    <ul>
+        <li ng-repeat="x    in names">
+            {{ x.name + ', ' + x.country }}
+        </li>
+    </ul>
+
+
 </div>
 
 <script>
